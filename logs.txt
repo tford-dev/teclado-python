@@ -1,0 +1,10 @@
+These are logs for /logging_in_python.py
+
+2023-09-05 07:42:06,921 INFO    :This will not show up
+2023-09-05 07:42:06,921 WARNING :This will....
+2023-09-05 07:42:06,921 DEBUG   :Debug message
+2023-09-05 07:42:06,921 CRITICAL:You did not find the bug fast enough and someone penetrated our system.
+2023-09-05 07:43:00,737 INFO    :This will not show up
+2023-09-05 07:43:00,737 WARNING :This will....
+2023-09-05 07:43:00,737 DEBUG   :Debug message
+2023-09-05 07:43:00,737 CRITICAL:You did not find the bug fast enough and someone penetrated our system.
