@@ -30,9 +30,11 @@ kanye_west_albums = [
 #             if finder(album) == expected:
 #                 return album;
 def find_album(expected, finder, list_arr):
+    found = [];
     for album in list_arr:
         if finder(album) == expected:
-            return album;
+            found.append(album);
+    return found;
 
 find_by = input("What property are we searching by? "); #this is to find a key in a dictionary
 looking_for = input("What are you looking? ");
