@@ -5,7 +5,7 @@
 ? = zero or one of
 
 .* = anything and any amount of it - does not read anything on new lines
-[ ] = match anything in the brackets 
+[ ] = match anything in the brackets
 [a-z] = match anything lowercase in those range of letters
 [A-z] = match anything regardless of case in those range of letters
 """
