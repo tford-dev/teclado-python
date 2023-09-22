@@ -27,6 +27,9 @@ class QuotesPage:
     @property
     def search_button(self):
         return self.browser.find_element(By.CSS_SELECTOR, QuotePageLocators.SEARCH_BUTTON)
+    
+    def get_authors(self):
+        return [option.text.strip() for option in self.author_dropdown.options]
 
     def select_author(self, author_name: str):
         self.author_dropdown.select_by_visible_text(author_name);
