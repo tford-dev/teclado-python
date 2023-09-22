@@ -1,7 +1,11 @@
-from typing import List
+
+from typing import List 
 from selenium.common.exceptions import NoSuchElementException;
+from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+
 from locators.quotes_page_locator import QuotePageLocators;
 from  parsers.quote import QuoteParser;
 
@@ -56,10 +60,18 @@ class QuotesPage:
     def search_for_quotes(self) -> List[QuoteParser]:
         author_name = input("Enter the author you'd like to read quotes from: ")
         self.select_author(author_name)
+        
+        WebDriverWait(self.browser, 10).until(
+            expected_conditions.presence_of_element_located(
+                (By.CSS_SELECTOR, QuotePageLocators.TAG_DROPDOWN_VALUE_OPTION)
+            )
+        )
+        
         tags = self.get_available_tags()
         print("Select one of these tags: [{}]".format(" | ".join(tags)))
         tag_name = input(
             "Enter your tag for the kinds of quotes you'd like: ")
+        
         try:
             self.select_tag(tag_name)
         except NoSuchElementException:
