@@ -42,6 +42,8 @@ class QuotesPage:
 
     # def search_for_quotes(self, author_name: str, tag_name: str) -> List[QuoteParser]:
     #     self.select_author(author_name)
+    #     tags = self.get_available_tags()
+    #     print("Select one of these tags: [{}]".format(" | ".join(tags)))
     #     try:
     #         self.select_tag(tag_name);
     #     except NoSuchElementException: 
@@ -50,7 +52,23 @@ class QuotesPage:
     #         )
     #     self.search_button.click()
     #     return self.quotes
+    
+    def search_for_quotes(self) -> List[QuoteParser]:
+        author_name = input("Enter the author you'd like to read quotes from: ")
+        self.select_author(author_name)
+        tags = self.get_available_tags()
+        print("Select one of these tags: [{}]".format(" | ".join(tags)))
+        tag_name = input(
+            "Enter your tag for the kinds of quotes you'd like: ")
+        try:
+            self.select_tag(tag_name)
+        except NoSuchElementException:
+            raise InvalidTagForAuthorError(
+                f"Author '{author_name}' does not have any data tagged with '{tag_name}'."
+            )
+        self.search_button.click()
+        return self.quotes
 
 #Placeholder 
-# class InvalidTagForAuthorError(ValueError):
-#     pass;
+class InvalidTagForAuthorError(ValueError):
+    pass;
