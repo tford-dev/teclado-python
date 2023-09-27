@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask stuff</title>
+</head>
+<body>
+<button><a href="{{url_for('home')}}" style="text-decoration: none">Home</a></button>
+<button><a href="{{url_for('create')}}" style="text-decoration: none">Create Post</a></button>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
